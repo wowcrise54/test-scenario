@@ -1,0 +1,10 @@
+# Example range configuration
+provider: proxmox
+siem: wazuh
+networks:
+  mgmt: 10.0.0.0/24
+  corp: 10.0.1.0/24
+nodes:
+  - name: SOC01
+    role: wazuh
+    ip: 10.0.0.10
