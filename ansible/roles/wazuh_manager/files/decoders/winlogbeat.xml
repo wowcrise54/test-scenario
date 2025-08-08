@@ -1,0 +1,4 @@
+<decoder name="winlogbeat">
+  <description>Decoder for Winlogbeat forwarded events</description>
+  <program_name>WinlogBeat</program_name>
+</decoder>

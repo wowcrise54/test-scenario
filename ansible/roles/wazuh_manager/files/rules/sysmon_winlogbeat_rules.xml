@@ -1,0 +1,16 @@
+<group name="sysmon,windows">
+  <rule id="100100" level="10">
+    <field name="winlog.event_id">4769</field>
+    <field name="winlog.event_data.TicketEncryptionType">0x17</field>
+    <description>Kerberoasting detected</description>
+  </rule>
+  <rule id="100101" level="10">
+    <field name="winlog.event_id">7045</field>
+    <field name="winlog.event_data.ServiceName">PSEXESVC</field>
+    <description>Lateral movement via PsExec</description>
+  </rule>
+  <rule id="100102" level="10">
+    <field name="winlog.event_id">5136</field>
+    <description>Domain controller object modification</description>
+  </rule>
+</group>
