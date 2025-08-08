@@ -1,0 +1,10 @@
+id: T1558.003
+tactic: credential-access
+name: Kerberoasting
+steps:
+  precheck:
+    - action: noop
+  exec:
+    - action: kerberoast
+  cleanup:
+    - action: noop

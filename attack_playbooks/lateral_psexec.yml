@@ -1,0 +1,12 @@
+id: T1570
+tactic: lateral-movement
+name: Lateral PsExec
+steps:
+  precheck:
+    - action: noop
+  exec:
+    - action: lateral_psexec
+      args:
+        target: localhost
+  cleanup:
+    - action: noop

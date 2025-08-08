@@ -7,7 +7,7 @@ repos:
     rev: v1.17.1
     hooks:
       - id: mypy
-        additional_dependencies: [typer]
+        additional_dependencies: [typer, types-psutil, types-PyYAML, types-paramiko]
         args: [--config-file=orchestrator/pyproject.toml]
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.37.1

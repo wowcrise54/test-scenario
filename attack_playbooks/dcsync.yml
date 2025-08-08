@@ -1,0 +1,10 @@
+id: T1003.006
+tactic: credential-access
+name: DCSync
+steps:
+  precheck:
+    - action: noop
+  exec:
+    - action: dcsync
+  cleanup:
+    - action: noop
