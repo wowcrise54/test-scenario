@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "orchestrator"
+version = "0.1.0"
+description = "RangeForge orchestrator CLI"
+authors = ["RangeForge <dev@rangeforge.local>"]
+packages = [{include = "orchestrator"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+
+[tool.poetry.scripts]
+orchestrator = "orchestrator.cli:app"
+
+[tool.ruff]
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
