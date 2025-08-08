@@ -1,0 +1,10 @@
+---
+- name: Restart Sysmon
+  ansible.windows.win_service:
+    name: sysmon
+    state: restarted
+
+- name: Restart Winlogbeat
+  ansible.windows.win_service:
+    name: winlogbeat
+    state: restarted

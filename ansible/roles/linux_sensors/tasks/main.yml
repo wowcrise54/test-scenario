@@ -1,0 +1,29 @@
+---
+- name: Install sensor packages
+  ansible.builtin.package:
+    name:
+      - "{{ linux_sensors_osquery_pkg }}"
+      - "{{ linux_sensors_auditbeat_pkg }}"
+      - "{{ linux_sensors_wazuh_agent_pkg }}"
+    state: present
+
+- name: Ensure osquery service is running
+  ansible.builtin.service:
+    name: osqueryd
+    state: started
+    enabled: true
+  notify: Restart Osquery
+
+- name: Ensure auditbeat service is running
+  ansible.builtin.service:
+    name: auditbeat
+    state: started
+    enabled: true
+  notify: Restart Auditbeat
+
+- name: Ensure wazuh agent service is running
+  ansible.builtin.service:
+    name: wazuh-agent
+    state: started
+    enabled: true
+  notify: Restart Wazuh agent

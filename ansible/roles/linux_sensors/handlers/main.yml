@@ -1,0 +1,15 @@
+---
+- name: Restart Osquery
+  ansible.builtin.service:
+    name: osqueryd
+    state: restarted
+
+- name: Restart Auditbeat
+  ansible.builtin.service:
+    name: auditbeat
+    state: restarted
+
+- name: Restart Wazuh agent
+  ansible.builtin.service:
+    name: wazuh-agent
+    state: restarted

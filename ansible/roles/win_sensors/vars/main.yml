@@ -1,0 +1,3 @@
+---
+win_sensors_sysmon_config_src: files/sysmon.xml
+win_sensors_sysmon_config_dest: "C:\\Windows\\Sysmon.xml"

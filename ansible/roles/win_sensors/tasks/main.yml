@@ -1,0 +1,24 @@
+---
+- name: Deploy Sysmon configuration
+  ansible.windows.win_copy:
+    src: "{{ win_sensors_sysmon_config_src }}"
+    dest: "{{ win_sensors_sysmon_config_dest }}"
+  notify: Restart Sysmon
+
+- name: Install Winlogbeat
+  chocolatey.chocolatey.win_chocolatey:
+    name: winlogbeat
+    state: present
+  notify: Restart Winlogbeat
+
+- name: Configure WinRM security
+  ansible.windows.win_powershell:
+    script: |
+      Set-Item WSMan:\localhost\Service\AllowUnencrypted -Value false
+      Set-Item WSMan:\localhost\Service\Auth\Basic -Value false
+  changed_when: false
+
+- name: Set execution policy to Unrestricted
+  ansible.windows.win_powershell:
+    script: Set-ExecutionPolicy Unrestricted -Scope LocalMachine -Force
+  changed_when: false

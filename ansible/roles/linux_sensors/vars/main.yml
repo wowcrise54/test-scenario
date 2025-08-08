@@ -1,0 +1,4 @@
+---
+linux_sensors_osquery_pkg: osquery
+linux_sensors_auditbeat_pkg: auditbeat
+linux_sensors_wazuh_agent_pkg: wazuh-agent

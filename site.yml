@@ -1,0 +1,3 @@
+---
+- name: Include main playbook
+  import_playbook: playbooks/site.yml

@@ -1,0 +1,12 @@
+---
+- name: Install Wazuh manager components
+  ansible.builtin.package:
+    name: "{{ wazuh_manager_packages }}"
+    state: present
+
+- name: Ensure Wazuh manager service is running
+  ansible.builtin.service:
+    name: wazuh-manager
+    state: started
+    enabled: true
+  notify: Restart Wazuh manager
