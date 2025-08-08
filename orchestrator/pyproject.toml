@@ -9,6 +9,9 @@ packages = [{include = "orchestrator"}]
 python = "^3.11"
 typer = "^0.12.3"
 psutil = "^5.9.8"
+paramiko = "^3.4.0"
+pypsrp = "^0.8.1"
+pyyaml = "^6.0.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.0.0"
