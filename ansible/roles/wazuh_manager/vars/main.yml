@@ -1,0 +1,5 @@
+---
+wazuh_manager_packages:
+  - wazuh-manager
+  - wazuh-indexer
+  - wazuh-dashboard

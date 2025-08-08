@@ -1,0 +1,15 @@
+---
+ad_dc_domain_name: corp.local
+ad_dc_safe_mode_password: "ChangeMe123!"
+ad_dc_root_dn: "DC=corp,DC=local"
+ad_dc_ous:
+  - RedTeam
+  - BlueTeam
+ad_dc_users:
+  - name: red
+    password: "RedPass123!"
+    ou: "OU=RedTeam,{{ ad_dc_root_dn }}"
+  - name: blue
+    password: "BluePass123!"
+    ou: "OU=BlueTeam,{{ ad_dc_root_dn }}"
+ad_dc_logging_gpo: Enable Advanced Logging

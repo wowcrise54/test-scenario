@@ -1,0 +1,33 @@
+---
+- name: Install Active Directory Domain Services
+  ansible.windows.win_feature:
+    name: AD-Domain-Services
+    state: present
+  notify: Reboot domain controller
+
+- name: Promote server to domain controller
+  microsoft.ad.domain:
+    dns_domain_name: "{{ ad_dc_domain_name }}"
+    safe_mode_password: "{{ ad_dc_safe_mode_password }}"
+    install_dns: true
+  register: ad_dc_domain_install
+
+- name: Create organizational units
+  microsoft.ad.ou:
+    name: "{{ item }}"
+    path: "{{ ad_dc_root_dn }}"
+    state: present
+  loop: "{{ ad_dc_ous }}"
+
+- name: Create domain users
+  microsoft.ad.user:
+    name: "{{ item.name }}"
+    password: "{{ item.password }}"
+    path: "{{ item.ou }}"
+    state: present
+  loop: "{{ ad_dc_users }}"
+
+- name: Ensure logging GPO exists
+  ansible.builtin.debug:
+    msg: "GPO {{ ad_dc_logging_gpo }} would be configured"
+  changed_when: false

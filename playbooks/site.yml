@@ -1,0 +1,25 @@
+---
+- name: Configure domain controller
+  hosts: dc
+  roles:
+    - ad_dc
+
+- name: Configure Windows sensors
+  hosts: windows
+  roles:
+    - win_sensors
+
+- name: Configure Linux sensors
+  hosts: linux
+  roles:
+    - linux_sensors
+
+- name: Configure Wazuh manager
+  hosts: wazuh
+  roles:
+    - wazuh_manager
+
+- name: Configure ELK stack
+  hosts: elk
+  roles:
+    - elk_stack

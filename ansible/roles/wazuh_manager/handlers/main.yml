@@ -1,0 +1,5 @@
+---
+- name: Restart Wazuh manager
+  ansible.builtin.service:
+    name: wazuh-manager
+    state: restarted

@@ -1,0 +1,21 @@
+---
+- name: Install Elasticsearch and Kibana
+  ansible.builtin.package:
+    name:
+      - "{{ elk_stack_elasticsearch_pkg }}"
+      - "{{ elk_stack_kibana_pkg }}"
+    state: present
+
+- name: Ensure Elasticsearch service is running
+  ansible.builtin.service:
+    name: elasticsearch
+    state: started
+    enabled: true
+  notify: Restart Elasticsearch
+
+- name: Ensure Kibana service is running
+  ansible.builtin.service:
+    name: kibana
+    state: started
+    enabled: true
+  notify: Restart Kibana
