@@ -7,7 +7,7 @@ repos:
     rev: v1.17.1
     hooks:
       - id: mypy
-        additional_dependencies: [click]
+        additional_dependencies: [typer]
         args: [--config-file=orchestrator/pyproject.toml]
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.37.1
