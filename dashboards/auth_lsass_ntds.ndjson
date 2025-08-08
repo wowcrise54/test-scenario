@@ -1,0 +1,1 @@
+{"type":"dashboard","id":"auth-lsass-ntds","attributes":{"title":"Auth/LSASS/NTDS","description":"Authentication and LSASS/NTDS activity","panelsJSON":"[]","optionsJSON":"{\"useMargins\":true,\"hidePanelTitles\":false}"},"references":[],"migrationVersion":{},"coreMigrationVersion":"8.0.0"}

@@ -4,6 +4,24 @@
     name: "{{ wazuh_manager_packages }}"
     state: present
 
+- name: Deploy custom Wazuh decoders
+  ansible.builtin.copy:
+    src: decoders/
+    dest: /var/ossec/etc/decoders/
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart Wazuh manager
+
+- name: Deploy custom Wazuh rules
+  ansible.builtin.copy:
+    src: rules/
+    dest: /var/ossec/etc/rules/
+    owner: root
+    group: root
+    mode: "0644"
+  notify: Restart Wazuh manager
+
 - name: Ensure Wazuh manager service is running
   ansible.builtin.service:
     name: wazuh-manager

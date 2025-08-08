@@ -66,9 +66,19 @@ def emulate(playbook: str = typer.Option(..., help="Comma separated playbooks"))
 
 
 @app.command()
-def observe() -> None:
-    """Open dashboards or rules (stub)."""
-    typer.echo("Observation not implemented yet")
+def observe(
+    import_dashboards: bool = typer.Option(
+        False, help="Import dashboards into Kibana/Wazuh-Dash"
+    )
+) -> None:
+    """Open dashboards or rules."""
+    if import_dashboards:
+        from . import import_dashboards as importer
+
+        importer.import_dashboards()
+        typer.echo("Dashboards imported")
+    else:
+        typer.echo("Observation not implemented yet")
 
 
 @app.command()

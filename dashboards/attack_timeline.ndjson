@@ -1,0 +1,1 @@
+{"type":"dashboard","id":"attack-timeline","attributes":{"title":"Attack Timeline","description":"Timeline of attack events","panelsJSON":"[]","optionsJSON":"{\"useMargins\":true,\"hidePanelTitles\":false}"},"references":[],"migrationVersion":{},"coreMigrationVersion":"8.0.0"}

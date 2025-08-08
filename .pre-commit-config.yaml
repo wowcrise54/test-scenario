@@ -1,3 +1,4 @@
+---
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.12.8
@@ -7,7 +8,13 @@ repos:
     rev: v1.17.1
     hooks:
       - id: mypy
-        additional_dependencies: [typer, types-psutil, types-PyYAML, types-paramiko]
+        additional_dependencies:
+          - typer
+          - types-psutil
+          - types-PyYAML
+          - types-paramiko
+          - types-requests
+          - pytest
         args: [--config-file=orchestrator/pyproject.toml]
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.37.1

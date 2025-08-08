@@ -1,0 +1,4 @@
+<decoder name="sysmon">
+  <description>Decoder for Sysmon events</description>
+  <program_name>Sysmon</program_name>
+</decoder>
