@@ -5,6 +5,8 @@ import subprocess
 import typer
 import psutil
 
+from .collect import collect_artifacts
+
 app = typer.Typer(help="RangeForge orchestrator CLI.")
 
 STATE_DIR = Path("state")
@@ -82,10 +84,13 @@ def observe(
 
 
 @app.command()
-def collect(out: Path = typer.Option(Path("./artifacts"), help="Output directory")) -> None:
-    """Collect run artifacts (stub)."""
+def collect(
+    out: Path = typer.Option(Path("./artifacts"), help="Artifacts output directory"),
+) -> None:
+    """Collect run artifacts into a zip archive."""
     out.mkdir(parents=True, exist_ok=True)
-    typer.echo(f"Artifacts collected into {out}")
+    zip_path = collect_artifacts(out)
+    typer.echo(f"Artifacts archived at {zip_path}")
 
 
 @app.command()
